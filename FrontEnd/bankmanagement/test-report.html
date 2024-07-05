@@ -1,0 +1,260 @@
+<html><head><meta charset="utf-8"/><title>Test Report</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+.jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed,
+.summary-obsolete-snapshots {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMessages.suiteFailure {
+  border-top: none;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-container > input[type="checkbox"] {
+  position: absolute;
+  left: -100vw;
+}
+.suite-container label {
+  display: block;
+}
+.suite-container .suite-tests {
+  overflow-y: hidden;
+  height: 0;
+}
+.suite-container > input[type="checkbox"]:checked ~ .suite-tests {
+  height: auto;
+  overflow: visible;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+.suite-info:before {
+  content: "\2303";
+  display: inline-block;
+  margin-right: 0.5rem;
+  transform: rotate(0deg);
+}
+.suite-container > input[type="checkbox"]:checked ~ label .suite-info:before {
+  transform: rotate(180deg);
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* OBSOLETE SNAPSHOTS */
+.suite-obsolete-snapshots {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.suite-obsolete-snapshots-header {
+  font-weight: bold;
+}
+.suite-obsolete-snapshots-item {
+  padding: 0.5rem;
+}
+.suite-obsolete-snapshots-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-obsolete-snapshots-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div class="jesthtml-content"><header><h1 id="title">Test Report</h1></header><div id="metadata-container"><div id="timestamp">Started: 2023-11-23 09:51:22</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (23)</div><div class="summary-passed ">22 passed</div><div class="summary-failed ">1 failed</div><div class="summary-pending  summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (98)</div><div class="summary-passed ">97 passed</div><div class="summary-failed ">1 failed</div><div class="summary-pending  summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><input id="collapsible-0" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-0"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/manager/__test__/ViewCustomer.test.js</div><div class="suite-time">2.099s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">ViewCustomer</div><div class="test-title">displays user data in the table</div><div class="test-status">passed</div><div class="test-duration">0.085s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">ViewCustomer</div><div class="test-title">handles error in fetchData</div><div class="test-status">passed</div><div class="test-duration">0.077s</div></div></div></div></div><div id="suite-2" class="suite-container"><input id="collapsible-1" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-1"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/manager/__test__/ViewStaff.test.js</div><div class="suite-time">2.644s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">ViewStaff</div><div class="test-title">fetches and displays staff data on mount</div><div class="test-status">passed</div><div class="test-duration">0.181s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">ViewStaff</div><div class="test-title">handles pagination on button click</div><div class="test-status">passed</div><div class="test-duration">0.169s</div></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">ViewStaff</div><div class="test-title">calls handleUpdate when update button is clicked</div><div class="test-status">failed</div><div class="test-duration">0.382s</div></div></div></div></div><div id="suite-3" class="suite-container"><input id="collapsible-2" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-2"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/TransactionHistory.test.js</div><div class="suite-time">2.616s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionHistory Component</div><div class="test-title">renders transaction history data</div><div class="test-status">passed</div><div class="test-duration">0.135s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionHistory Component</div><div class="test-title">handles download correctly</div><div class="test-status">passed</div><div class="test-duration">0.166s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionHistory Component</div><div class="test-title">handles pagination on button click</div><div class="test-status">passed</div><div class="test-duration">0.16s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionHistory Component</div><div class="test-title">displays alert for "Transaction not exist"</div><div class="test-status">passed</div><div class="test-duration">0.009s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionHistory Component</div><div class="test-title">displays alert for error</div><div class="test-status">passed</div><div class="test-duration">0.009s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionHistory Component</div><div class="test-title">handles error in download</div><div class="test-status">passed</div><div class="test-duration">0.051s</div></div></div></div></div><div id="suite-4" class="suite-container"><input id="collapsible-3" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-3"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/staff/__test__/PendingAccount.test.js</div><div class="suite-time">1.154s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">PendingAccount Component</div><div class="test-title">fetches and displays pending account data</div><div class="test-status">passed</div><div class="test-duration">0.124s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">PendingAccount Component</div><div class="test-title">handles error  account approval</div><div class="test-status">passed</div><div class="test-duration">0.124s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">PendingAccount Component</div><div class="test-title">handles error  account reject</div><div class="test-status">passed</div><div class="test-duration">0.049s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">PendingAccount Component</div><div class="test-title">handles account approval</div><div class="test-status">passed</div><div class="test-duration">0.051s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">PendingAccount Component</div><div class="test-title">handles account rejection</div><div class="test-status">passed</div><div class="test-duration">0.043s</div></div></div></div></div><div id="suite-5" class="suite-container"><input id="collapsible-4" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-4"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/Login.test.js</div><div class="suite-time">1.119s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">button in the component</div><div class="test-status">passed</div><div class="test-duration">0.123s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">should render button with given name</div><div class="test-status">passed</div><div class="test-duration">0.051s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">updates input fields correctly</div><div class="test-status">passed</div><div class="test-duration">0.03s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">password input should be empty</div><div class="test-status">passed</div><div class="test-duration">0.013s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">email input should be empty</div><div class="test-status">passed</div><div class="test-duration">0.013s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">submits the login form with valid input</div><div class="test-status">passed</div><div class="test-duration">0.073s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">handles login failure with invalid credentials</div><div class="test-status">passed</div><div class="test-duration">0.117s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">submits the login form with valid input - Customer</div><div class="test-status">passed</div><div class="test-duration">0.043s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">submits the login form with valid input - Manager</div><div class="test-status">passed</div><div class="test-duration">0.056s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Login Component</div><div class="test-title">submits the login form with valid input - Staff</div><div class="test-status">passed</div><div class="test-duration">0.07s</div></div></div></div></div><div id="suite-6" class="suite-container"><input id="collapsible-5" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-5"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/Register.test.js</div><div class="suite-time">1.734s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Register Component</div><div class="test-title">registers successfully and navigates to login</div><div class="test-status">passed</div><div class="test-duration">0.893s</div></div></div></div></div><div id="suite-7" class="suite-container"><input id="collapsible-6" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-6"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/manager/__test__/TransactionView.test.js</div><div class="suite-time">0.815s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">renders TransactionView component</div><div class="test-status">passed</div><div class="test-duration">0.205s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">fetches and displays transaction data on mount</div><div class="test-status">passed</div><div class="test-duration">0.013s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">renders TransactionView component with no transactions found</div><div class="test-status">passed</div><div class="test-duration">0.009s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">handles pagination on button click</div><div class="test-status">passed</div><div class="test-duration">0.035s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">downloads transaction history on button click</div><div class="test-status">passed</div><div class="test-duration">0.032s</div></div></div></div></div><div id="suite-8" class="suite-container"><input id="collapsible-7" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-7"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/Monthly.test.js</div><div class="suite-time">0.971s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Monthly Transaction History</div><div class="test-title">monthly transactions</div><div class="test-status">passed</div><div class="test-duration">0.258s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Monthly Transaction History</div><div class="test-title">shows an alert if month is not selected</div><div class="test-status">passed</div><div class="test-duration">0.059s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Monthly Transaction History</div><div class="test-title">it calls download service and performs download logic</div><div class="test-status">passed</div><div class="test-duration">0.027s</div></div></div></div></div><div id="suite-9" class="suite-container"><input id="collapsible-8" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-8"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/Deposit.test.js</div><div class="suite-time">0.768s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Deposit Component</div><div class="test-title">submits the deposit form with valid input</div><div class="test-status">passed</div><div class="test-duration">0.122s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Deposit Component</div><div class="test-title">handles errors during deposit</div><div class="test-status">passed</div><div class="test-duration">0.057s</div></div></div></div></div><div id="suite-10" class="suite-container"><input id="collapsible-9" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-9"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/CreateAccount.test.js</div><div class="suite-time">0.931s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">CreateAccount Component</div><div class="test-title">submits the create account form with valid input</div><div class="test-status">passed</div><div class="test-duration">0.228s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">CreateAccount Component</div><div class="test-title">shows an alert if no account type is selected</div><div class="test-status">passed</div><div class="test-duration">0.046s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">CreateAccount Component</div><div class="test-title">shows an alert if account creation fails</div><div class="test-status">passed</div><div class="test-duration">0.063s</div></div></div></div></div><div id="suite-11" class="suite-container"><input id="collapsible-10" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-10"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/staff/__test__/ViewTransaction.test.js</div><div class="suite-time">0.897s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">renders TransactionView component</div><div class="test-status">passed</div><div class="test-duration">0.2s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">fetches and displays transaction data on mount</div><div class="test-status">passed</div><div class="test-duration">0.013s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">renders TransactionView component with no transactions found</div><div class="test-status">passed</div><div class="test-duration">0.011s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">handles pagination on button click</div><div class="test-status">passed</div><div class="test-duration">0.043s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">TransactionView</div><div class="test-title">downloads transaction history on button click</div><div class="test-status">passed</div><div class="test-duration">0.051s</div></div></div></div></div><div id="suite-12" class="suite-container"><input id="collapsible-11" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-11"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/Logout.test.js</div><div class="suite-time">0.575s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Logout</div><div class="test-title">removes tokens from localStorage and navigates to /login</div><div class="test-status">passed</div><div class="test-duration">0.076s</div></div></div></div></div><div id="suite-13" class="suite-container"><input id="collapsible-12" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-12"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/manager/__test__/UpdateCustomer.test.js</div><div class="suite-time">0.79s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">UpdateCustomer</div><div class="test-title">updates customer data on form submission</div><div class="test-status">passed</div><div class="test-duration">0.157s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">UpdateCustomer</div><div class="test-title">updates formValue state on input change</div><div class="test-status">passed</div><div class="test-duration">0.03s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">UpdateCustomer</div><div class="test-title">handles error when updating customer</div><div class="test-status">passed</div><div class="test-duration">0.067s</div></div></div></div></div><div id="suite-14" class="suite-container"><input id="collapsible-13" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-13"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/manager/__test__/UpdateStaff.test.js</div><div class="suite-time">0.784s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">UpdateStaff</div><div class="test-title">updates formValue state on input change</div><div class="test-status">passed</div><div class="test-duration">0.144s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">UpdateStaff</div><div class="test-title">submits form and displays success message</div><div class="test-status">passed</div><div class="test-duration">0.082s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">UpdateStaff</div><div class="test-title">handles error when updating staff</div><div class="test-status">passed</div><div class="test-duration">0.05s</div></div></div></div></div><div id="suite-15" class="suite-container"><input id="collapsible-14" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-14"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/CustomerDash.test.js</div><div class="suite-time">0.609s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">CustomerDash Component</div><div class="test-title">renders the CustomerDash component with user data</div><div class="test-status">passed</div><div class="test-duration">0.033s</div></div></div></div></div><div id="suite-16" class="suite-container"><input id="collapsible-15" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-15"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/Withdraw.test.js</div><div class="suite-time">0.742s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Withdraw Component</div><div class="test-title">submits the withdraw form with valid input</div><div class="test-status">passed</div><div class="test-duration">0.126s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Withdraw Component</div><div class="test-title">handles errors during withdraw</div><div class="test-status">passed</div><div class="test-duration">0.082s</div></div></div></div></div><div id="suite-17" class="suite-container"><input id="collapsible-16" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-16"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/staff/__test__/CustomerView.test.js</div><div class="suite-time">0.74s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">CustomerView Component</div><div class="test-title">displays customer data and navigates to view transaction on button click</div><div class="test-status">passed</div><div class="test-duration">0.198s</div></div></div></div></div><div id="suite-18" class="suite-container"><input id="collapsible-17" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-17"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/__test__/apiUrls.test.js</div><div class="suite-time">0.687s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">registers a user successfully</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles registration error</div><div class="test-status">passed</div><div class="test-duration">0.053s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">logs in a user successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles login error</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">creates an account successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles account creation error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">fetches account information successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles account information fetching error</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">fetches pending accounts successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles pending accounts fetching error</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">updates account successfully</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles account update error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">successfully deposits amount</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles deposit error</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">successfully withdraws amount</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles withdrawal error</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">fetches transaction history successfully</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles transaction history fetch error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">fetches download history successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles download history fetch error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">fetches customer data successfully</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles view customer error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">updates customer data successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles update customer error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">fetches staff data successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles view staff error</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">updates staff data successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles update staff error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">closes account successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles close account error</div><div class="test-status">passed</div><div class="test-duration">0.01s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">fetches staff/manager transaction history successfully</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles staff/manager transaction history fetch error</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">fetches staff/manager transaction data successfully</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Customer Service</div><div class="test-title">handles view transaction error</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-19" class="suite-container"><input id="collapsible-18" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-18"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/manager/__test__/ManagerDash.test.js</div><div class="suite-time">0.667s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">ManagerDash Component</div><div class="test-title">renders the CustomerDash component with user data</div><div class="test-status">passed</div><div class="test-duration">0.032s</div></div></div></div></div><div id="suite-20" class="suite-container"><input id="collapsible-19" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-19"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/context/__test__/UserContext.test.js</div><div class="suite-time">0.643s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">UserProvider</div><div class="test-title">provides the username to components using the useUser hook</div><div class="test-status">passed</div><div class="test-duration">0.027s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">UserProvider</div><div class="test-title">renders the username correctly</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div></div></div><div id="suite-21" class="suite-container"><input id="collapsible-20" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-20"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/staff/__test__/StaffDash.test.js</div><div class="suite-time">0.533s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">CustomerDash Component</div><div class="test-title">renders the CustomerDash component with user data</div><div class="test-status">passed</div><div class="test-duration">0.027s</div></div></div></div></div><div id="suite-22" class="suite-container"><input id="collapsible-21" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-21"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/__test__/App.test.js</div><div class="suite-time">1.203s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">App Component</div><div class="test-title">renders the App component correctly</div><div class="test-status">passed</div><div class="test-duration">0.033s</div></div></div></div></div><div id="suite-23" class="suite-container"><input id="collapsible-22" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-22"><div class="suite-info"><div class="suite-path">/home/manups/Pictures/bankmanagement/src/customer/__test__/ViewAccount.test.js</div><div class="suite-time">1.371s</div></div></label><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">ViewAccount</div><div class="test-title">closes the account successfully and alerts the user</div><div class="test-status">passed</div><div class="test-duration">0.087s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">ViewAccount</div><div class="test-title">handles the case when account closure fails and alerts the user</div><div class="test-status">passed</div><div class="test-duration">0.029s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">ViewAccount</div><div class="test-title">handles the case when account closure requires withdrawal and alerts the user</div><div class="test-status">passed</div><div class="test-duration">0.04s</div></div></div></div></div></div></body></html>
